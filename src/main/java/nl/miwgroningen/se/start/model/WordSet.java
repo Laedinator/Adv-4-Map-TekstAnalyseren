@@ -22,7 +22,7 @@ public class WordSet {
             while (sourceReader.hasNext()) {
                 String word = sourceReader.next();
                 word = word.replaceAll("[^A-Za-z0-9]", "");
-                if (!word.equals("")) {
+                if (!word.isEmpty()) {
                     wordSet.add(word);
                 }
             }
@@ -38,7 +38,7 @@ public class WordSet {
 
     public Iterable<String> getWordsSorted() {
         List<String> wordList = new ArrayList<>(wordSet);
-        Collections.sort(wordList);
+        wordList.sort(String.CASE_INSENSITIVE_ORDER);
         return wordList;
     }
 }
